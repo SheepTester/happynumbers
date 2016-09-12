@@ -1,19 +1,27 @@
 body {
   margin: 0;
   font-family: "Roboto", sans-serif;
-  background: #3F51B5;
+  background: #0D47A1;
   color: #E0E0E0;
+  font-size: 30px;
 }
 input {
   border: none !important;
   border-radius: 5px;
   background: white;
   color: #333;
+  font-size: inherit;
   font-family: inherit;
-  font-size: 30px;
   padding: 5px;
   margin: 5px;
+  box-shadow: 0 1px 1px rgba(0,0,0,0.3);
+  width: 60px;
+}
+ul {
+  margin: 5px 15px;
+  padding: 0;
 }
 ul li {
   display: inline;
+  padding-right: 5px;
 }
