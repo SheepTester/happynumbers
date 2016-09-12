@@ -4,6 +4,7 @@ body {
   background: #0D47A1;
   color: #E0E0E0;
   font-size: 30px;
+  animation: rainbows 7s infinite;
 }
 input {
   border: none !important;
@@ -23,12 +24,50 @@ ul {
 }
 ul li {
   display: inline;
-  padding-right: 5px;
+  margin-right: 5px;
+}
+@keyframes rainbows {
+  0% {background:#2196F3;}
+  14% {background:#00BCD4;}
+  29% {background:#8BC34A;}
+  43% {background:#FFC107;}
+  57% {background:#FF5722;}
+  71% {background:#E91E63;}
+  86% {background:#673AB7;}
+  100% {background:#2196F3;}
 }
 .how {
   display: none;
   position: absolute;
 }
+li:hover {
+  background: rgba(255,255,255,0.3);
+}
 li:hover .how {
-  display: block;
+  display: inline;
+  top: 120px;
+  width: 200px;
+  background: white;
+  padding: 5px;
+  box-shadow: 0 0 3px rgba(0,0,0,0.3);
+  border-radius: 5px;
+  color: #666;
+  font-size: 20px;
+}
+li:hover .how:before {
+  content: "";
+  width: 0; 
+  height: 0; 
+  border-left: 15px solid transparent;
+  border-right: 15px solid transparent;
+  border-bottom: 15px solid white;
+  position: absolute;
+  top: -15px;
+}
+sup { 
+  vertical-align: super;
+  font-size: 10px;
+}
+b {
+  font-weight: bold;
 }
