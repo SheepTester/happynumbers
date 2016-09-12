@@ -22,7 +22,7 @@ document.querySelector("#max").onchange=function() {
 function calc() {
   mems=[];
   document.querySelector("ul").innerHTML="";
-  for(var i=document.querySelector("#min");i<document.querySelector("#max")+1;i++){
+  for(var i=document.querySelector("#min").value;i<document.querySelector("#max").value+1;i++){
   	if(testForMEMS(i)){
   		mems.push(i);
   		document.querySelector("ul").innerHTML+="<li>"+i+"</li>";
