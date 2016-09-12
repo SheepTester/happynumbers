@@ -1,5 +1,5 @@
 var mems;
-document.querySelector("#min").onchange=function() {
+document.querySelector("#min").onchange=document.querySelector("#min").onkeyup=function() {
   document.querySelector("#max").min=document.querySelector("#min").value;
   if (document.querySelector("#max").value<document.querySelector("#min").value){
     document.querySelector("#max").value=document.querySelector("#min").value;
@@ -9,7 +9,7 @@ document.querySelector("#min").onchange=function() {
   }
   calc();
 };
-document.querySelector("#max").onchange=function() {
+document.querySelector("#max").onchange=document.querySelector("#min").onkeyup=function() {
   document.querySelector("#min").max=document.querySelector("#max").value;
   if (document.querySelector("#min").value>document.querySelector("#max").value){
     document.querySelector("#min").value=document.querySelector("#max").value;
@@ -22,7 +22,7 @@ document.querySelector("#max").onchange=function() {
 function calc() {
   mems=[];
   document.querySelector("ul").innerHTML="";
-  for(var i=document.querySelector("#min").value;i<document.querySelector("#max").value+1;i++){
+  for(var i=Number(document.querySelector("#min").value);i<Number(document.querySelector("#max").value)+1;i++){
   	if(testForMEMS(i)){
   		mems.push(i);
   		document.querySelector("ul").innerHTML+="<li>"+i+"</li>";
@@ -39,7 +39,7 @@ function testForMEMS(n){
 		}
 		n=t;
 	}
-	if(n==1){/* ||n==7 */
+	if(n==1||n==7){
 		return true;
 	}else{
 		return false;
