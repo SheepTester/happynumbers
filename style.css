@@ -25,3 +25,10 @@ ul li {
   display: inline;
   padding-right: 5px;
 }
+.how {
+  display: none;
+  position: absolute;
+}
+li:hover .how {
+  display: block;
+}
