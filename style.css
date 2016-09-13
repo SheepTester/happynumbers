@@ -4,7 +4,7 @@ body {
   background: #0D47A1;
   color: #E0E0E0;
   font-size: 30px;
-  animation: rainbows 7s infinite;
+  animation: rainbows 14s infinite;
 }
 input {
   border: none !important;
@@ -70,4 +70,7 @@ sup {
 }
 b {
   font-weight: bold;
+}
+#resizer {
+  display: none;
 }
