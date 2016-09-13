@@ -75,7 +75,8 @@ b {
   font-weight: bold;
 }
 #resizer {
-  display: none;
+  position: absolute;
+  left: -1000%;
 }
 ::selection {
   background: rgba(0, 188, 212, 0.4);
