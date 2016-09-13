@@ -1,22 +1,28 @@
 var mems;
+calc();
 document.querySelector("#min").onchange=document.querySelector("#min").onkeyup=function() {
   document.querySelector("#max").min=document.querySelector("#min").value;
-  check();
-  calc();
+  document.querySelector("#resizer").innerHTML=document.querySelector("#min").value;
+  document.querySelector("#min").style.width=(document.querySelector("#resizer").clientWidth+16)+"px";
+  check(document.querySelector("#min").value,document.querySelector("#max").value);
 };
 document.querySelector("#max").onchange=document.querySelector("#min").onkeyup=function() {
   document.querySelector("#min").max=document.querySelector("#max").value;
-  check();
-  calc();
+  document.querySelector("#resizer").innerHTML=document.querySelector("#max").value;
+  document.querySelector("#max").style.width=(document.querySelector("#resizer").clientWidth+16)+"px";
+  check(document.querySelector("#min").value,document.querySelector("#max").value);
 };
-function check() {
-  if (document.querySelector("#min").value>document.querySelector("#max").value){
+document.querySelector("#calc").onclick=function(){
+  calc();
+}
+function check(min,max) {
+  if (Number(min)>Number(max)){
     document.querySelector("#min").value=document.querySelector("#max").value;
   }
-  if (document.querySelector("#min").value==""||document.querySelector("#min").value<0){
+  if (Number(min)==""||Number(min)<0){
     document.querySelector("#min").value=0;
   }
-  if (document.querySelector("#max").value<document.querySelector("#min").value||document.querySelector("#max").value==""){
+  if (Number(max)<Number(min)||Number(max)==""){
     document.querySelector("#max").value=document.querySelector("#min").value;
   }
 }
@@ -37,13 +43,16 @@ function testForMEMS(n){
   var t,wow="";
   while (n.toString().length>1) {
     t=0;
+    var jiggles="";
     for(var j=0;j<n.toString().length;j++){
-      t+=Number(n.toString()[j])*Number(n.toString()[j]);
+      t+=Math.pow(Number(n.toString()[j]),2);
       wow+=n.toString()[j]+"<sup>2</sup>+";
+      jiggles+=Math.pow(Number(n.toString()[j]),2)+"+";
     }
     n=t;
     wow=wow.slice(0,wow.length-1);
-    wow+="=<b>"+n+"</b><br>";
+    jiggles=jiggles.slice(0,jiggles.length-1);
+    wow+="="+jiggles+"=<b>"+n+"</b><br>";
   }
   if(n==1||n==7){
     return wow;
