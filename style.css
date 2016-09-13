@@ -5,6 +5,7 @@ body {
   color: #E0E0E0;
   font-size: 30px;
   animation: rainbows 14s infinite;
+  overflow: hidden;
 }
 input {
   border: none !important;
