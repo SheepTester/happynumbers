@@ -23,7 +23,7 @@ input {
 ul {
   margin: 5px 15px;
   padding: 0;
-  max-width: calc(100% - 130px);
+  max-width: calc(100% - 140px);
 }
 ul li {
   display: inline-block;
