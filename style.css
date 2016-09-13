@@ -17,13 +17,15 @@ input {
   margin: 5px;
   box-shadow: 0 1px 1px rgba(0,0,0,0.3);
   width: 60px;
+  min-width: 40px;
 }
 ul {
   margin: 5px 15px;
   padding: 0;
+  max-width: calc(100% - 130px);
 }
 ul li {
-  display: inline;
+  display: inline-block;
   margin-right: 5px;
 }
 @keyframes rainbows {
@@ -39,7 +41,7 @@ ul li {
 .how {
   display: none;
   position: absolute;
-  top: 120px;
+  top: 50px;
   width: 200px;
   background: white;
   padding: 5px;
@@ -47,6 +49,7 @@ ul li {
   border-radius: 5px;
   color: #666;
   font-size: 20px;
+  word-break: break-all;
 }
 .how:before {
   content: "";
@@ -60,6 +63,7 @@ ul li {
 }
 li:hover {
   background: rgba(0,0,0,0.3);
+  position: relative;
 }
 li:hover .how {
   display: inline;
