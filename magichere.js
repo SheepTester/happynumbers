@@ -12,7 +12,7 @@ document.querySelector("#max").onchange=document.querySelector("#min").onkeyup=f
   document.querySelector("#max").style.width=(document.querySelector("#resizer").clientWidth+16)+"px";
   check(document.querySelector("#min").value,document.querySelector("#max").value);
 };
-document.querySelector("#calc").onclick=function(){
+document.querySelector("#btn").onclick=function(){
   calc();
 }
 function check(min,max) {
@@ -37,7 +37,6 @@ function calc() {
       document.querySelector("ul").innerHTML+="<li><div class='how'>"+how+"</div>"+i+"</li>";
     }
   }
-  console.log(mems);
 }
 function testForMEMS(n){
   var t,wow="";
