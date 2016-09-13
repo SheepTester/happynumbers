@@ -101,3 +101,22 @@ b {
 #btn::selection {
   background: none;
 }
+#footer {
+  font-size: 15px;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+#footer a {
+  text-decoration: none;
+  color: #333;
+  padding-bottom: 1px;
+}
+#footer a:hover {
+  border-bottom: 1px solid #333;
+  padding-bottom: 0;
+}
+#footer a:active {
+  color: #E0E0E0;
+  border-bottom-color: #E0E0E0;
+}
