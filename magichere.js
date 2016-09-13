@@ -44,6 +44,12 @@ function calc() {
 }
 function testForMEMS(n){
   var t,wow="";
+  if(n==1){
+    wow="1<sup>2</sup>=<b>1</b><br>";
+  } else if(n==7){
+    wow="7<sup>2</sup>=<b>49</b><br>";
+    n=49;
+  }
   while (n.toString().length>1) {
     t=0;
     var jiggles="";
@@ -57,7 +63,7 @@ function testForMEMS(n){
     jiggles=jiggles.slice(0,jiggles.length-1);
     wow+="="+jiggles+"=<b>"+n+"</b><br>";
   }
-  if(n==1||n==7){
+  if(n==1){
     return wow;
   }else{
     return "";
