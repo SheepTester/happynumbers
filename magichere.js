@@ -1,11 +1,16 @@
 var mems;
+calc();
 document.querySelector("#min").onchange=document.querySelector("#min").onkeyup=function() {
   document.querySelector("#max").min=document.querySelector("#min").value;
+  document.querySelector("#resizer").innerHTML=document.querySelector("#min").value;
+  document.querySelector("#min").style.width=(document.querySelector("#resizer").clientWidth+16)+"px";
   check();
   calc();
 };
 document.querySelector("#max").onchange=document.querySelector("#min").onkeyup=function() {
   document.querySelector("#min").max=document.querySelector("#max").value;
+  document.querySelector("#resizer").innerHTML=document.querySelector("#max").value;
+  document.querySelector("#max").style.width=(document.querySelector("#resizer").clientWidth+16)+"px";
   check();
   calc();
 };
