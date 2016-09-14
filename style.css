@@ -5,7 +5,6 @@ body {
   color: #E0E0E0;
   font-size: 30px;
   animation: rainbows 14s infinite;
-  overflow: hidden;
 }
 input {
   border: none !important;
@@ -62,14 +61,14 @@ ul li {
   position: absolute;
   top: -15px;
 }
-li:hover {
+li:hover, li.hover {
   background: rgba(0,0,0,0.3);
   position: relative;
 }
-li:hover .how {
+li:hover .how, li.hover .how {
   display: inline;
 }
-li:hover .how:before {
+li:hover .how:before, li.hover .how:before {
   border-bottom-color: white;
 }
 sup { 
@@ -108,7 +107,7 @@ b {
 }
 #footer {
   font-size: 15px;
-  position: absolute;
+  position: fixed;
   bottom: 0;
   width: 100%;
 }
@@ -124,4 +123,22 @@ b {
 #footer a:active {
   color: #E0E0E0;
   border-bottom-color: #E0E0E0;
+}
+::-webkit-scrollbar {
+	background: none;
+}
+::-webkit-scrollbar-track {
+  animation: rainbows 14s infinite;
+}
+::-webkit-scrollbar:vertical {
+	width: 5px;
+}
+::-webkit-scrollbar:horizontal {
+	display: none;
+}
+::-webkit-scrollbar-thumb {
+	background: rgba(255, 255, 255, 0.3);
+}
+::-webkit-scrollbar-thumb:hover {
+	background: rgba(255, 255, 255, 0.5);
 }
