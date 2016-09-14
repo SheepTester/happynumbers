@@ -69,3 +69,9 @@ function testForMEMS(n){
     return "";
   }
 }
+document.querySelector("ul").onclick=function(e) {
+  document.getElementsByClassName("hover")[0].className="";
+  if (e.target.tagName="LI") {
+    e.target.className="hover";
+  }
+};
