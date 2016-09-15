@@ -2,7 +2,7 @@ body {
   margin: 0;
   font-family: "Roboto", sans-serif;
   background: #0D47A1;
-  color: #E0E0E0;
+  color: white;
   font-size: 30px;
   animation: rainbows 14s infinite;
 }
@@ -20,9 +20,9 @@ input {
   min-width: 40px;
 }
 ul {
-  margin: 5px 15px;
-  padding: 0;
-  max-width: calc(100% - 140px);
+  margin: 0;
+  padding: 5px 15px 250px 15px;
+  max-width: calc(100% - 170px);
 }
 ul li {
   display: inline-block;
@@ -110,6 +110,7 @@ b {
   position: fixed;
   bottom: 0;
   width: 100%;
+  background: rgba(0,0,0,0.3);
 }
 #footer a {
   text-decoration: none;

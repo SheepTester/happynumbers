@@ -1,5 +1,5 @@
 var mems;
-calc();
+calc(Number(document.querySelector("#min").value),Number(document.querySelector("#max").value));
 document.querySelector("#resizer").innerHTML=document.querySelector("#min").value;
 document.querySelector("#min").style.width=(document.querySelector("#resizer").clientWidth+16)+"px";
 document.querySelector("#resizer").innerHTML=document.querySelector("#max").value;
@@ -17,7 +17,7 @@ document.querySelector("#max").onchange = document.querySelector("#max").onkeyup
   document.querySelector("#max").style.width=(document.querySelector("#resizer").clientWidth+16)+"px";
 };
 document.querySelector("#btn").onclick=function(){
-  calc();
+  calc(Number(document.querySelector("#min").value),Number(document.querySelector("#max").value));
 }
 function check(min,max) {
   if (Number(min)>Number(max)){
@@ -30,17 +30,16 @@ function check(min,max) {
     document.querySelector("#max").value=document.querySelector("#min").value;
   }
 }
-function calc() {
-  mems=[];
-  var how;
+function calc(min,max) {
+  var how,mem=""; // mem is an empty string
   document.querySelector("ul").innerHTML="";
-  for(var i=Number(document.querySelector("#min").value);i<Number(document.querySelector("#max").value)+1;i++){
+  for(var i=Number(min);i<max+1;i++){
     how=testForMEMS(i);
     if(how!=""){
-      mems.push(i);
-      document.querySelector("ul").innerHTML+="<li><div class='how'>"+how+"</div>"+i+"</li>";
+      mem+="<li><div class='how'>"+how+"</div>"+i+"</li>"; // mem is our imaginary ul.innerHTML
     }
   }
+  document.querySelector("ul").innerHTML=mem; // then make your imagination come true; all lag (almost) gone!
 }
 function testForMEMS(n){
   var t,wow="";
@@ -70,8 +69,10 @@ function testForMEMS(n){
   }
 }
 document.querySelector("ul").onclick=function(e) {
-  document.getElementsByClassName("hover")[0].className="";
-  if (e.target.tagName="LI") {
+  if (document.getElementsByClassName("hover").length>0) {
+    document.getElementsByClassName("hover")[0].className="";
+  }
+  if (e.target.tagName=="LI") {
     e.target.className="hover";
   }
 };
