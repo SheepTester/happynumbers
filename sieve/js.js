@@ -8,7 +8,7 @@
         var t=document.createElement('one');
         t.innerHTML=n;
         if (n==2) {
-          t.className='by2';
+          t.className='prime';
         } else if (n>2) {
           var j=primes[0],k=0;
           while (j<=Math.ceil(Math.sqrt(n))) { // even if it's divisible by a prime higher than its square root, it's going to have a counterpart on the low end
