@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Do you know your times tables?</title>
+    <meta charset="UTF-8">
+    <meta name="description" content="An interactive and colourful times table for ages 3 and above."/>
+    <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
+    <style>
+      body {
+        display: table;
+        margin: 0;
+        padding-bottom: 2000px;
+        padding-right: 2000px;
+        font-family: 'Oswald', sans-serif;
+        color: white;
+        background: black;
+      }
+      row {
+        display: table;
+        height: 5vh;
+        white-space: nowrap;
+      }
+      box {
+        display: inline-block;
+        width: 5vw;
+        height: 100%;
+        text-align: center;
+        font-size: 3vh;
+        line-height: 5vh;
+      }
+      row:nth-child(odd) box:nth-child(odd), row:nth-child(even) box:nth-child(even) {
+        background: rgba(255,255,255,0.2);
+      }
+    </style>
+  </head>
+  <body>
+    <script src="../../sheep.js"></script>
+    <script src='js.js'></script>
+  </body>
+  <!-- MADE BY SEAN -->
+</html>
