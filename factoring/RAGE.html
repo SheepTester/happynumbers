@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>GUESS AND CHECK?</title>
+    <meta charset="UTF-8">
+    <meta name="description" content="NO ME GUSTAN GUESS KAJ CHECK."/>
+    <style>
+      input[type=number], button {
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>NO ME GUSTAN GUESS KAJ CHECK :(</h1>
+    <marquee scrollamount="50">ლ(ಠ益ಠლ)</marquee>
+    <input type="number" id="product1" placeholder="FIRST PRODUCT" value="3"/>
+    <input type="number" id="product2" placeholder="SECOND PRODUCT" value="-4"/>
+    <input type="number" id="sum" placeholder="SUM/DIFFERENCE" value="-7"/>
+    <button>OK DO MY HOMEWORK PLS</button>
+    <textarea id='result' rows="8" cols="80" placeholder="ANSWER GOES HERE I PROMISE"></textarea>
+
+    <script src="../../sheep.js"></script>
+    <script>
+(function() {
+  function findFactors(n) {
+    var faktrz=[];
+    for (var i=1;i<=Math.sqrt(n);i++) if (n%i===0) faktrz.push(i);
+    return faktrz;
+  }
+  document.querySelector('button').onclick=e=>{
+    var product1=Number(document.querySelector('#product1').value),
+    product2=Number(document.querySelector('#product2').value),
+    sum=Number(document.querySelector('#sum').value),
+    pos=product2>0,
+    factorsForProduct1=findFactors(product1),
+    factorsForProduct2=findFactors(product2),
+    answers={};
+    product2=Math.abs(product2);
+    aloop:
+    for (var i=0;i<factorsForProduct1.length;i++) {
+      for (var j=0;j<factorsForProduct2.length;j++) {
+        var p={
+          unu:factorsForProduct1[i],
+          du:factorsForProduct2[i],
+          tri:(product1/factorsForProduct1[i]),
+          kvar:(product2/factorsForProduct2[i])
+        };
+        if (pos) {
+          if (Math.abs(sum)===p.unu*p.du+p.tri*p.kvar) {
+            answers.wee=p.unu;
+            answers.why=p.du;
+            break aloop;
+          } else if (Math.abs(sum)===p.unu*p.kvar+p.tri*p.du) {
+            answers.wee=p.unu;
+            answers.why=p.kvar;
+            break aloop;
+          }
+        } else {
+          if (sum===p.unu*p.du-p.tri*p.kvar) {
+            answers.wee=p.unu;
+            answers.why=p.du;
+            break aloop;
+          } else if (sum===p.unu*p.kvar-p.tri*p.du) {
+            answers.wee=p.unu;
+            answers.why=p.kvar;
+            break aloop;
+          }
+        }
+      }
+    }
+    console.log(answers,pos,i,j);
+    document.querySelector('textarea').value=`(${answers.wee===1?'':answers.wee}x${pos?(sum>0?'+':'-'):''}${answers.why})(${answers.wee===product1?'':product1/answers.wee}x${pos?(sum>0?'+':'-'):''}${product2/answers.why})`;
+  };
+}());
+    </script>
+  </body>
+  <!-- MADE BY SEAN -->
+</html>

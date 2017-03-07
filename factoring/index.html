@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Factoring</title>
+    <meta charset="UTF-8">
+    <meta name="description" content="I really hate guess and check. Hate isn't a strong word."/>
+    <style>
+      body {
+        margin: 10px;
+        font-size: 15px;
+        line-height: 1;
+      }
+      maths {
+        display: block;
+        font-style: italic;
+      }
+      input[type=number] {
+        min-width: 15px;
+      }
+      input[type=number]::-webkit-inner-spin-button {
+        display: none;
+      }
+      button {
+        margin: 10px 0;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Factoring</h1>
+    <maths><input type="number" id="prod1"/>x<sup>2</sup> + <input type="number" id="sum"/>x + <input type="number" id="prod2"/></maths>
+    <button>All good</button>
+    <maths>(<span id="co1"></span>x+<span id="su1"></span>)(<span id="co2"></span>x+<span id="su2"></span>)</maths>
+
+    <script src="../../sheep.js"></script>
+    <script>
+var s=document.querySelectorAll('input[type=number]');
+for (var i=0;i<s.length;i++) (s[i].oninput=e=>e.target.style.width=(SHEEP.textwidth(e.target,e.target.value)+10)+'px')({target:s[i]});
+function findFactors(n) {
+  var faktrz=[];
+  for (var i=1;i<=Math.sqrt(n);i++) if (n%i===0) faktrz.push(i);
+  return faktrz;
+}
+document.querySelector('button').onclick=e=>{
+  var data={
+    prod1:Math.round(document.querySelector('#prod1').value?Number(document.querySelector('#prod1').value):1),
+    sum:Math.round(document.querySelector('#sum').value?Number(document.querySelector('#sum').value):1),
+    prod2:Math.round(Number(document.querySelector('#prod2').value))
+  },
+  factors=[findFactors(data.prod1),findFactors(data.prod2)],
+  result={
+    outerL:0,
+    innerL:0,
+    innerR:0,
+    outerR:0
+  };
+  aloop:
+  for (var i=0;i<factors[0].length;i++) {
+    for (var j=0;j<factors[1].length;j++) {
+      if (data.sum===factors[0][i]*factors[1][i]+(data.prod1/factors[0][i])*(data.prod2/factors[1][i])) {
+        result.outerL=factors[0][i];
+        result.outerR=factors[1][i];
+        result.innerL=(data.prod1/factors[0][i]);
+        result.innerR=(data.prod2/factors[1][i]);
+        break aloop;
+      } else if (data.sum===factors[0][i]*(data.prod2/factors[1][i])+(data.prod1/factors[0][i])*factors[1][i]) {
+        result.outerL=factors[0][i];
+        result.outerR=(data.prod2/factors[1][i]);
+        result.innerL=(data.prod1/factors[0][i]);
+        result.innerR=factors[1][i];
+        break aloop;
+      }
+    }
+  }
+  document.querySelector('#co1').innerHTML=result.outerL!==1?result.outerL:'';
+  document.querySelector('#su1').innerHTML=result.innerL;
+  document.querySelector('#co2').innerHTML=result.innerR!==1?result.innerR:'';
+  document.querySelector('#su2').innerHTML=result.outerR;
+  console.log(data,factors,result);
+};
+    </script>
+  </body>
+  <!-- MADE BY SEAN -->
+</html>
