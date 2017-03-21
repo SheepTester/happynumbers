@@ -18,6 +18,7 @@ input[type=number] {
   background: none;
   background-color: rgba(255,255,255,0.1);
   color: inherit;
+  border-radius: 2px;
 }
 input[type=number]::-webkit-input-placeholder {
   color: rgba(255,255,255,0.5);
@@ -49,8 +50,8 @@ container {
   left: 0;
   right: 0;
   bottom: 0;
-  height: 300px;
-  width: 600px;
+  height: 360px;
+  width: 560px;
   background-color: rgba(0,0,0,0.5);
   box-sizing: border-box;
   padding: 10px;
