@@ -1,7 +1,7 @@
 (function() {
   var n=0,primes=[2];
   function makeTens() {
-    while (document.body.clientHeight<window.innerHeight+document.body.scrollTop) {
+    while (document.body.clientHeight<window.innerHeight+(document.documentElement.scrollTop||document.body.scrollTop)) {
       var s=document.createElement('tens');
       for (var i=0;i<10;i++) {
         n++;
@@ -32,8 +32,8 @@
       document.body.appendChild(s);
     }
   }
-  window.onscroll=makeTens;
-  window.onresize=makeTens;
+  window.addEventListener("scroll",makeTens,false);
+  window.addEventListener("resize",makeTens,false);
   makeTens();
   document.body.onclick=e=>{
     if (e.target.tagName==='ONE') {
